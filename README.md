@@ -40,7 +40,7 @@ Click "System Health" error in bottom right, add your license where prompted.
 
 You're good to go!
 
-## Installing MDD Topology
+## Installing MDD Tooling
 
 Go to home directory.
 
@@ -129,7 +129,22 @@ ok: [hq-rtr1] =>
 [truncated]
 ```
 
+## Installing the MDD Topology
 
+The topology file that will describe how to build your network in CML is not correct (some of the labels are wrong). Replace those:
 
+`/home/student/mdd<venv>` `sed -i 's/enp0s2/ens2/g; s/enp0s3/ens3/g' ~/mdd/files/arch4_csr_pop.yaml.j2`
 
+Ensure you're in the correct directory and you're in the venv! See previous steps if not in venv.
 
+`cd ~/mdd`
+
+Run the playbook to build the CML topology.
+
+`/home/student/mdd<venv>` `ansible-playbook cisco.cml.build -e startup='host' -e wait='yes'`
+
+You can watch everything get built in your CML lab in your browser. When you inevitably run out of resources because this setup is a huge resource hog, you can tear it all down like so:
+
+`/home/student/mdd<venv>` `ansible-playbook cisco.cml.clean`
+
+[After solving the hardware issue, will return to this page to continue](https://github.com/model-driven-devops/mdd/blob/main/exercises/deploy-topology.md)
