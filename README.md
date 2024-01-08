@@ -5,7 +5,7 @@
 1.  Buy the personal edition of CML.
 0. Download CML software. We're using the .ova file
 0. Download iso.
-0. Extra the iso.
+0. Extract the iso.
 0. Download VMware workstation player.
 0. Open VMware player.
 0. VT-X or AMD bios must be enabled for virtualizion; mine already was.
